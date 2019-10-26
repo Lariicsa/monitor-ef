@@ -17,6 +17,11 @@ const router = new Router({
       name: 'registro',
       component: () => import('../views/Registro.vue'),
     },
+    {
+      path: '/ingreso',
+      name: 'ingreso',
+      component: () => import('../views/Login.vue'),
+    },
   ],
 });
 
