@@ -17,9 +17,18 @@ var firebaseConfig = {
   measurementId: "G-39RZ655KDD"
 };
 
-Vue.config.productionTip = false;
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+Vue.config.productionTip = false;
+firebase.auth().onAuthStateChanged((user)=>{
+  console.log(user);
+  
+  if(user) {
+    store.dispatch('isLoggedUser', {email: user.email, uid: user.uid})
+  } else {
+    store.dispatch('isLoggedUser', null)
+  }
+})
 
 
 new Vue({
