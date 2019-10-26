@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from '../router';
 var firebase = require("firebase/app");
 
 Vue.use(Vuex)
@@ -24,6 +25,7 @@ export default new Vuex.Store({
                 console.log(res.user.email);
                 console.log(res.user.uid);
                 commit('setUser', {email: res.user.email, uid: res.user.uid})
+                router.push({name: 'home'})
             })
             .catch(err=>{
                 console.log(err.message);

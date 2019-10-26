@@ -6,7 +6,7 @@
         <div class="field">
           <label class="label">Email</label>
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="email" v-model="email" />
+            <input class="input" type="email" name="email" v-model="email" />
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -19,7 +19,7 @@
         <div class="field">
           <label class="label">Contraseña</label>
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="password" v-model="pass1" />
+            <input class="input" type="password" name="password" autocomplete="on" v-model="pass1" />
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -33,7 +33,7 @@
         <div class="field">
           <label class="label">Confirmar contraseña</label>
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="password" v-model="pass2" />
+            <input class="input" type="password" name="password" autocomplete="on" v-model="pass2" />
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
