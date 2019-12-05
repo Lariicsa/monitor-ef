@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Header = ({title}) => {
+const Header = ({ title }) => {
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
@@ -47,6 +48,10 @@ const Header = ({title}) => {
             </div>
         </nav>
     )
+}
+
+Header.propTypes = {
+    title: PropTypes.string.isRequired
 }
 
 export default Header
