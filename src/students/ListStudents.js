@@ -1,5 +1,5 @@
 import React from 'react'
-import Student from './Student'
+import Student from '../components/Student'
 
 const ListStudents = ({ students, deleteStudent }) => {
     const isData = Object.keys(students).length
