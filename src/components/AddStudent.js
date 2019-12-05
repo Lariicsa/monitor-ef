@@ -1,27 +1,29 @@
 import React, { Component } from 'react'
 import uuid from 'uuid'
 
-class AddStudent extends Component {
-    state = {
-        student: {
-            level: '',
-            group: '',
-            name: '',
-            lastname1: '',
-            lastname2: '',
-            age: 0,
-            gender: '',
-        },
-        error: false
-    }
+const initialState = {
+    student: {
+        level: '',
+        group: '',
+        name: '',
+        lastname1: '',
+        lastname2: '',
+        age: 0,
+        gender: '',
+    },
+    error: false
+}
+
+class addStudent extends Component {
+    state = { ...initialState }
     handleInput = e => {
-        console.log(e.target.name + ':' + e.target.value);
         this.setState({
             student: {
                 ...this.state.student,
                 [e.target.name]: e.target.value
             }
         })
+        console.log(e.target.name + ':' + e.target.value);
     }
     handleSubmit = e => {
         e.preventDefault()
@@ -33,11 +35,14 @@ class AddStudent extends Component {
             })
             return
         }
-
+        // Checkthisout new object to newDate
         const newStudent = { ...this.state.student }
         newStudent.id = uuid();
 
-        this.props.addStudent(newStudent)
+        this.props.addNewStudent(newStudent)
+        this.setState({
+            ...initialState
+        })
     }
     render() {
         const { error } = this.state
@@ -53,9 +58,10 @@ class AddStudent extends Component {
                         <div className="column is-8">
                             <form className="box" onSubmit={this.handleSubmit}>
                                 <div className="field">
-                                    <label className="label">Grupo</label>
+                                    <label className="label">Grupo:</label>
                                     <div className="select">
                                         <select name="level" value={this.state.student.level} onChange={this.handleInput}>
+                                            <option disabled ></option>
                                             <option value="1ro">1ro</option>
                                             <option value="2do">2do</option>
                                             <option value="3ro">3ro</option>
@@ -63,6 +69,7 @@ class AddStudent extends Component {
                                     </div>
                                     <div className="select">
                                         <select name="group" value={this.state.student.group} onChange={this.handleInput}>
+                                            <option disabled ></option>
                                             <option value="A">A</option>
                                             <option value="B">B</option>
                                             <option value="C">C</option>
@@ -70,13 +77,12 @@ class AddStudent extends Component {
                                     </div>
                                     {error ?
                                         <p className="help is-danger">Por favor agrega un grupo</p>
-                                         : null}
+                                        : null}
                                 </div>
 
                                 <div className="field">
                                     <label className="label">Nombre(s):</label>
                                     <input className="input"
-
                                         onChange={this.handleInput}
                                         value={this.state.student.name}
                                         type='text'
@@ -86,7 +92,6 @@ class AddStudent extends Component {
                                 <div className="field">
                                     <label className="label">Apellido paterno:</label>
                                     <input className="input"
-
                                         onChange={this.handleInput}
                                         value={this.state.student.lastname1}
                                         type='text'
@@ -97,7 +102,6 @@ class AddStudent extends Component {
                                 <div className="field">
                                     <label className="label">Apellido materno:</label>
                                     <input className="input"
-
                                         onChange={this.handleInput}
                                         value={this.state.student.lastname2}
                                         type='text'
@@ -108,7 +112,6 @@ class AddStudent extends Component {
                                 <div className="field">
                                     <label className="label">Edad:</label>
                                     <input className="input"
-
                                         onChange={this.handleInput}
                                         value={this.state.student.age}
                                         type='number'
@@ -139,4 +142,4 @@ class AddStudent extends Component {
     }
 }
 
-export default AddStudent
+export default addStudent
