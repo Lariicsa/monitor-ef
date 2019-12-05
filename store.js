@@ -26,3 +26,11 @@ const createStoreWithFirebase = compose(
     reduxFirebase(firebase, rrfConfig),
     reduxFirestore(firebase)
 )(createStore)
+
+const rootReducer = combineReducers({
+    firebase: firebaseReducer,
+    firestore: firestoreReducer
+})
+
+const initialState = {}
+
