@@ -1,7 +1,7 @@
 import React from 'react'
 import Student from './Student'
 
-const ListStudents = ({ students }) => {
+const ListStudents = ({ students, deleteStudent }) => {
     return (
         <div className="columns box is-centered">
             <div className="column is-12">
@@ -27,6 +27,7 @@ const ListStudents = ({ students }) => {
                                 <Student
                                     key={student.id}
                                     student={student}
+                                    deleteStudent={deleteStudent}
                                 />
                             )}
                         </tbody>

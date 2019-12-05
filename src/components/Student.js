@@ -1,14 +1,14 @@
 import React from 'react'
 
-const Student = ({ student }) => {
+const Student = ({ student, deleteStudent }) => {
     return (
         <tr>
-            <td>{student.i}</td>
+            <td>{student.id}</td>
             <td>{student.name} {student.lastname1} {student.name2}</td>
             <td>{student.age}</td>
             <td>{student.gender}</td>
             <td>{student.level} {student.group}</td>
-            <td></td>
+            <td><button className="button is-danger" onClick={()=>deleteStudent(student.id)}>Eliminar</button></td>
         </tr>
     )
 }

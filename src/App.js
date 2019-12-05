@@ -16,6 +16,17 @@ class App extends Component {
       students
     })
   }
+
+  deleteStudent = id => {
+    const currentStudents = [...this.state.students]
+
+    const students = currentStudents.filter(student => student.id !== id)
+
+    this.setState({
+      students
+    })
+    console.log('delete');
+  }
   render() {
     return (
       <>
@@ -34,7 +45,8 @@ class App extends Component {
             <div className="columns box is centered">
               <div className="column is-12">
                 <ListStudents
-                students={this.state.students} />
+                  students={this.state.students}
+                  deleteStudent={this.deleteStudent} />
               </div>
             </div>
           </section>
