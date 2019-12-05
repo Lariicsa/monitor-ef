@@ -2,14 +2,18 @@ import React from 'react'
 import Student from './Student'
 
 const ListStudents = ({ students, deleteStudent }) => {
+    const isData = Object.keys(students).length
     return (
         <div className="columns box is-centered">
-            <div className="column is-12">
+
+            {isData !== 0 ?
+                <div className="column is-12">
                 <div className="columns is-right">
                     <div className="column is-12">
-                        <h2 className="title is-1 has-text-right">Todos los Alumnos</h2>
+                        <h2 className="title is-1 has-text-right">Todos los alumnos</h2>
                     </div>
                 </div>
+
                 <div className="table-wrapper">
                     <table className="table is-fullwidth ">
                         <thead>
@@ -33,7 +37,13 @@ const ListStudents = ({ students, deleteStudent }) => {
                         </tbody>
                     </table>
                 </div>
+            </div> :
+            <div className="columns is-right">
+                <div className="column is-12">
+                    <h2 className="title is-1 has-text-right">Sin alumnos</h2>
+                </div>
             </div>
+            }
         </div>
     )
 }
