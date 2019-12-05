@@ -8,7 +8,7 @@ const Student = ({ student, deleteStudent }) => {
             <td>{student.age}</td>
             <td>{student.gender}</td>
             <td>{student.level} {student.group}</td>
-            <td><button className="button is-danger" onClick={()=>deleteStudent(student.id)}>Eliminar</button></td>
+            <td><button className="button is-danger" onClick={() => deleteStudent(student.id)}>Eliminar</button></td>
         </tr>
     )
 }

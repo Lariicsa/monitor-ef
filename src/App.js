@@ -8,6 +8,19 @@ class App extends Component {
     students: []
   }
 
+  componentDidMount() {
+    const ListStudentsLS = localStorage.getItem('students')
+    if (ListStudentsLS) {
+      this.setState({
+        students: JSON.parse(ListStudentsLS)
+      })
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('students', JSON.stringify(this.state.students))
+  }
+
   addNewStudent = data => {
     const students = [...this.state.students, data]
     console.log(data);

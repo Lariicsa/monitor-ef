@@ -23,7 +23,7 @@ const ListStudents = ({ students, deleteStudent }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {students && students.map((student,i) =>
+                            {students && students.map((student, i) =>
                                 <Student
                                     key={student.id}
                                     student={student}
