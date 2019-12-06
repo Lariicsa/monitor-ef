@@ -1,49 +1,20 @@
 import React, { Component } from 'react'
-import uuid from 'uuid'
 
-const initialState = {
-    student: {
-        level: '',
-        group: '',
-        name: '',
-        lastname1: '',
-        lastname2: '',
-        age: 0,
-        gender: '',
-    },
-    error: false
-}
+// const initialState = {
+//     student: {
+//         level: '',
+//         group: '',
+//         name: '',
+//         lastname1: '',
+//         lastname2: '',
+//         age: 0,
+//         gender: '',
+//     },
+//     error: false
+// }
 
 class addStudent extends Component {
-    state = { ...initialState }
-    handleInput = e => {
-        this.setState({
-            student: {
-                ...this.state.student,
-                [e.target.name]: e.target.value
-            }
-        })
-        console.log(e.target.name + ':' + e.target.value);
-    }
-    handleSubmit = e => {
-        e.preventDefault()
-        const { level, group, name, lastname1, lastname2, age, gender } = this.state.student
-
-        if (level === '' || group === '' || name === '' || lastname1 === '' || lastname2 === '' || age === '' || gender === '') {
-            this.setState({
-                error: true
-            })
-            return
-        }
-        // Checkthisout new object to newDate
-        const newStudent = { ...this.state.student }
-        newStudent.id = uuid();
-
-        this.props.addNewStudent(newStudent)
-        this.setState({
-            ...initialState
-        })
-    }
+   
     render() {
         const { error } = this.state
         return (
