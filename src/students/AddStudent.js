@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
+import { firestoreConnect } from 'react-redux-firebase'
 
-// const initialState = {
-//     student: {
-//         level: '',
-//         group: '',
-//         name: '',
-//         lastname1: '',
-//         lastname2: '',
-//         age: 0,
-//         gender: '',
-//     },
-//     error: false
-// }
 
 class addStudent extends Component {
-   
+    state = {
+        student: {
+            level: '',
+            group: '',
+            name: '',
+            lastname1: '',
+            lastname2: '',
+            age: 0,
+            gender: '',
+        },
+        error: false
+    }
+
+    addStudent = e => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
     render() {
         const { error } = this.state
         return (
@@ -113,4 +120,4 @@ class addStudent extends Component {
     }
 }
 
-export default addStudent
+export default firestoreConnect()(addStudent );

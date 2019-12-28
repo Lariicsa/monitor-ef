@@ -1,0 +1,84 @@
+@import "../../scss/index.scss";
+
+.navbar {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  &-brand {
+    margin-right: 4%;
+  }
+  &-link {
+    color: $purple;
+    font-size: 22px;
+  }
+  &-dropdown {
+    .navbar-item {
+      font-size: 20px;
+      &.is-active {
+        color: $clearBg;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.navbar-link:not(.is-arrowless)::after {
+  border-color: $purple;
+  color: $purple;
+}
+
+a.navbar {
+  background-color: transparent;
+  &-item {
+    color: $purple;
+    font-size: 22px;
+    img {
+      max-height: 1.6em;
+    }
+    &.is-active {
+      color: $clearBg;
+      font-weight: bold;
+    }
+  }
+}
+
+.navbar {
+  background-color: transparent;
+  &__Menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    list-style-type: none;
+
+    & > li {
+      margin: 0 1.6rem;
+      color: $primary;
+
+      &:first-child {
+        margin-left: 0;
+        margin-right: 4rem;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        color: $link;
+        cursor: pointer;
+      }
+    }
+
+    &-brand {
+      @include icon("logo", $primary);
+      height: 4rem;
+      width: 11.2rem;
+    }
+  }
+
+  @include tablet {
+    background-color: transparent;
+    display: none;
+  }
+}

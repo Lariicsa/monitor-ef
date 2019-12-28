@@ -19,46 +19,6 @@
     height: 4.8rem;
   }
 
-  .navbar {
-    width: auto;
-    &__Menu {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      list-style-type: none;
-
-      & > li {
-        margin: 0 1.6rem;
-        color: $primary;
-
-        &:first-child {
-          margin-left: 0;
-          margin-right: 4rem;
-        }
-        &:last-child {
-          margin-right: 0;
-        }
-        &:hover {
-          color: $link;
-          cursor: pointer;
-        }
-      }
-
-      &-brand {
-        @include icon('logo',$primary);
-        height: 4rem;
-        width: 11.2rem;
-      }
-    }
-
-    @include tablet {
-      display: none;
-    }
-  }
-
   .logo-mobile {
     display: none;
     @include tablet {
