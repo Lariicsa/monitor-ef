@@ -1,0 +1,55 @@
+@import "../../scss/index.scss";
+
+.burger {
+  background-color: transparent;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 1.6rem;
+  width: 2rem;
+  position: relative;
+  z-index: 2002;
+
+  & > span {
+    display: flex;
+    background-color: $clearBg;
+    border-radius: 4rem;
+    height: 0.2rem;
+    width: 100%;
+    transition: 0.2s;
+    transition-timing-function: ease-out;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include tablet {
+    display: flex;
+  }
+
+  &.unLogged {
+    display: none;
+  }
+
+  &.open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & > span {
+      transition: 0.2s;
+      transition-timing-function: ease-out;
+      &:nth-child(1) {
+        transform: rotate(130deg);
+      }
+      &:nth-child(2) {
+        transform: rotate(45deg);
+      }
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+}

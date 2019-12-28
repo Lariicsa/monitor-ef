@@ -1,0 +1,103 @@
+@import '../../scss/index.scss';
+
+.header {
+  background-color: transparent;
+  display: flex;
+  padding: 0 3.2rem;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.6rem;
+  width: 100%;
+
+  @include tablet {
+    border-bottom: 0.2rem solid #e7e7e7;
+    padding: 0 2.4rem;
+  }
+
+  @include mobile {
+    padding: 0 1.6rem;
+    height: 4.8rem;
+  }
+
+  .navbar {
+    width: auto;
+    &__Menu {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      list-style-type: none;
+
+      & > li {
+        margin: 0 1.6rem;
+        color: $primary;
+
+        &:first-child {
+          margin-left: 0;
+          margin-right: 4rem;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        &:hover {
+          color: $link;
+          cursor: pointer;
+        }
+      }
+
+      &-brand {
+        @include icon('logo',$primary);
+        height: 4rem;
+        width: 11.2rem;
+      }
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .logo-mobile {
+    display: none;
+    @include tablet {
+      @include icon('logo',$primary);
+      display: inline-block;
+      height: 4rem;
+      width: 11.2rem;
+    }
+
+    @include mobile {
+      height: 3.2rem;
+    }
+  }
+
+  &__Burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 1.6rem;
+    width: 2rem;
+
+    & > span {
+      background-color: $primary;
+      border-radius: 4rem;
+      height: 0.2rem;
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: $grey-lite;
+      cursor: pointer;
+    }
+
+    @include tablet {
+      display: flex;
+    }
+
+    &.unLogged {
+      display: none;
+    }
+  }
+}

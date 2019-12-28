@@ -32,3 +32,13 @@ $font-text-size-sm: 12px;
 $font-text-size-md: 18px;
 $font-text-size-lg: 20px;
 $font-text-size-xlg: 24px;
+
+
+//Screen-sizes
+$tablet: 768px !default;
+$mobile: 376px !default;
+
+//utils
+$radius: 0.5rem;
+$shadow: 0 0.2rem 0.6rem 0#0000001A;
+$no-shadow: 0 0 0 0 transparent;

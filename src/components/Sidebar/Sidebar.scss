@@ -1,0 +1,47 @@
+@import "../../scss/index.scss";
+
+.sidebar {
+  background-color: $grey-dark;
+  box-shadow: $shadow;
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 27.2rem;
+  z-index: 200;
+  transform: translateX(100%);
+  transition: 0.2s;
+  transition-timing-function: ease-out;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  &__Close {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 3.2rem;
+    width: 3.2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__Background {
+    display: none;
+    background-color: rgba(41, 57, 68, 0.2);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 199;
+
+    &.open {
+      display: flex;
+    }
+  }
+}
