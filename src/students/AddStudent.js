@@ -4,7 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 
 class addStudent extends Component {
     state = {
-        student: {
+       // student: {
             level: '',
             group: '',
             name: '',
@@ -12,11 +12,11 @@ class addStudent extends Component {
             lastname2: '',
             age: 0,
             gender: '',
-        },
+      //  },
         error: false
     }
 
-    addStudent = e => {
+    handleInput = e => {
         this.setState({
             [e.target.name] : e.target.value
         })
@@ -38,7 +38,7 @@ class addStudent extends Component {
                                 <div className="field">
                                     <label className="label">Grupo:</label>
                                     <div className="select">
-                                        <select name="level" value={this.state.student.level} onChange={this.handleInput}>
+                                        <select name="level" value={this.state.level} onChange={this.handleInput}>
                                             <option disabled ></option>
                                             <option value="1ro">1ro</option>
                                             <option value="2do">2do</option>
@@ -46,7 +46,7 @@ class addStudent extends Component {
                                         </select>
                                     </div>
                                     <div className="select">
-                                        <select name="group" value={this.state.student.group} onChange={this.handleInput}>
+                                        <select name="group" value={this.state.group} onChange={this.handleInput}>
                                             <option disabled ></option>
                                             <option value="A">A</option>
                                             <option value="B">B</option>
@@ -62,7 +62,7 @@ class addStudent extends Component {
                                     <label className="label">Nombre(s):</label>
                                     <input className="input"
                                         onChange={this.handleInput}
-                                        value={this.state.student.name}
+                                        value={this.state.name}
                                         type='text'
                                         name='name'
                                     />
@@ -71,7 +71,7 @@ class addStudent extends Component {
                                     <label className="label">Apellido paterno:</label>
                                     <input className="input"
                                         onChange={this.handleInput}
-                                        value={this.state.student.lastname1}
+                                        value={this.state.lastname1}
                                         type='text'
                                         name='lastname1'
                                     />
@@ -81,7 +81,7 @@ class addStudent extends Component {
                                     <label className="label">Apellido materno:</label>
                                     <input className="input"
                                         onChange={this.handleInput}
-                                        value={this.state.student.lastname2}
+                                        value={this.state.lastname2}
                                         type='text'
                                         name='lastname2'
                                     />
@@ -91,7 +91,7 @@ class addStudent extends Component {
                                     <label className="label">Edad:</label>
                                     <input className="input"
                                         onChange={this.handleInput}
-                                        value={this.state.student.age}
+                                        value={this.state.age}
                                         type='number'
                                         name='age'
                                     />
@@ -100,7 +100,7 @@ class addStudent extends Component {
                                 <div className="field">
                                     <label className="label">Género:</label>
                                     <div className="select">
-                                        <select name="gender" value={this.state.student.gender} onChange={this.handleInput} >
+                                        <select name="gender" value={this.state.gender} onChange={this.handleInput} >
                                             <option disabled ></option>
                                             <option value="Femenino">Femenino</option>
                                             <option value="Masculino">Masculino</option>
