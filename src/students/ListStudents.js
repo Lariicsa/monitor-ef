@@ -4,8 +4,15 @@ import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { Link } from 'react-router-dom'
 
-const ListStudents = ({ alumnos }) => {
+const ListStudents = ({ alumnos, firestore }) => {
     if (!alumnos) return <strong>Cargando...</strong>
+
+    const deleteStudent = id => {
+        firestore.delete({
+            collection: 'alumnos',
+            doc : id
+        })
+    }
 
     return (
         <div className="table-wrapper">
@@ -28,6 +35,7 @@ const ListStudents = ({ alumnos }) => {
                             <td>{student.age}</td>
                             <td>{student.gender}</td>
                             <td>{student.level} {student.group}</td>
+                            <td><div onClick={()=> deleteStudent(student.id)} className="button is-danger">Borrar</div></td>
                             <td><Link to={`/students/detail/${student.id}`} className="button is-primary">Ver</Link></td>
                         </tr>
                     )}
