@@ -16,6 +16,14 @@ class addStudent extends Component {
         error: false
     }
 
+    handleSubmit = e => {
+        e.preventDefault()
+        const newStudent = this.state
+        const {firestore, history} = this.props
+        firestore.add({collection: 'alumnos'}, newStudent)
+            .then(() => history.push('/'))
+    }
+
     handleInput = e => {
         this.setState({
             [e.target.name] : e.target.value
